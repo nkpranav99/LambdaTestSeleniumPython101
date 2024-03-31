@@ -38,7 +38,8 @@ chrome_caps = {
     "visual": True,
     "video": True,
     "network": True,
-    "console": "true"
+    "console": "true",
+    "tunnel": True
 }
 
 edge_caps = {
@@ -50,7 +51,8 @@ edge_caps = {
     "visual": True,
     "video": True,
     "network": True,
-    "console": "true"
+    "console": "true",
+    "tunnel": True
 }
 
 firefox_caps = {
@@ -62,7 +64,8 @@ firefox_caps = {
     "visual": True,
     "video": True,
     "network": True,
-    "console": "true"
+    "console": "true",
+    "tunnel": True
 }
 
 ie_caps = {
@@ -74,7 +77,8 @@ ie_caps = {
     "visual": True,
     "video": True,
     "network": True,
-    "console": "true"
+    "console": "true",
+    "tunnel": True
 }
 
 
