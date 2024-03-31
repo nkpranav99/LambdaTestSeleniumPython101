@@ -5,7 +5,6 @@ tasks:
   - name: Install Python Dependencies
     command: pip install pytest selenium pytest-xdist
 
-# Specify Git configuration options (if needed)
 git:
   global:
     user.name: "Pranav Naik"

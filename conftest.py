@@ -34,7 +34,11 @@ chrome_caps = {
     "name": "LambdaTest Grid On Chrome and Windows 10",
     "platform": "Windows 10",
     "browserName": "Chrome",
-    "version": "88.0"
+    "version": "88.0",
+    "visual": True,
+    "video": True,
+    "network": True,
+    "console": "true"
 }
 
 edge_caps = {
@@ -42,7 +46,11 @@ edge_caps = {
     "name": "LambdaTest Grid On Edge and macOS Sierra",
     "platform": "macOS Sierra",
     "browserName": "Edge",
-    "version": "87.0"
+    "version": "87.0",
+    "visual": True,
+    "video": True,
+    "network": True,
+    "console": "true"
 }
 
 firefox_caps = {
@@ -50,7 +58,11 @@ firefox_caps = {
     "name": "LambdaTest Grid On Firefox and Windows 7",
     "platform": "Windows 7",
     "browserName": "Firefox",
-    "version": "82.0"
+    "version": "82.0",
+    "visual": True,
+    "video": True,
+    "network": True,
+    "console": "true"
 }
 
 ie_caps = {
@@ -58,42 +70,44 @@ ie_caps = {
     "name": "LambdaTest Grid On Internet Explorer and Windows 10",
     "platform": "Windows 10",
     "browserName": "Internet Explorer",
-    "version": "11.0"
+    "version": "11.0",
+    "visual": True,
+    "video": True,
+    "network": True,
+    "console": "true"
 }
 
 
 # 3rd Step: Connect To LambdaTest Using A Fixture & RemoteConnection
 @pytest.fixture(params=["chrome", "firefox", "edge", "ie"])
 def driver_initialization(request):
-    """
-  Initialize Driver For Selenium Grid On LambdaTest
-  :param request:
-  """
-    desired_caps = {}
-
     if request.param == "chrome":
-        desired_caps.update(chrome_caps)
+        chrome_options = webdriver.ChromeOptions()
+        chrome_options.set_capability("LT:Options", chrome_caps)
         driver = webdriver.Remote(
             command_executor=RemoteConnection(remote_url),
-            desired_capabilities=desired_caps
+            options=chrome_options
         )
     elif request.param == "firefox":
-        desired_caps.update(firefox_caps)
+        firefox_options = webdriver.FirefoxOptions()
+        firefox_options.set_capability("LT:Options", firefox_caps)
         driver = webdriver.Remote(
             command_executor=RemoteConnection(remote_url),
-            desired_capabilities= desired_caps
+            options=firefox_options
         )
     elif request.param == "edge":
-        desired_caps.update(edge_caps)
+        edge_options = webdriver.EdgeOptions()
+        edge_options.set_capability("LT:Options", edge_caps)
         driver = webdriver.Remote(
             command_executor=RemoteConnection(remote_url),
-            desired_capabilities=desired_caps
+            options=edge_options
         )
     elif request.param == "ie":
-        desired_caps.update(ie_caps)
+        ie_options = webdriver.IeOptions()
+        ie_options.set_capability("LT:Options", ie_caps)
         driver = webdriver.Remote(
             command_executor=RemoteConnection(remote_url),
-            desired_capabilities=desired_caps
+            options=ie_options
         )
     request.cls.driver = driver
     yield
