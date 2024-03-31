@@ -1,5 +1,5 @@
 import pytest
-
+import time
 
 from Pages.BasePage import BasePage
 from Pages.SimpleFormDemo import SimpleFormDemo
@@ -14,6 +14,7 @@ class TestScenario1(CommonTests):
 
         # Click “Simple Form Demo” under Input Forms.
         base_page.click_on_element(TestData.simple_form_demo_link)
+        time.sleep(2)
 
         # Validate that the URL contains “simple-form-demo"
         simple_form_demo.verify_url_contains_text("simple-form-demo")
