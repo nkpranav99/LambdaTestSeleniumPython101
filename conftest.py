@@ -25,7 +25,7 @@ def initialize_driver(request):
 
 # 1st Step: Declare Variables For Setting Up LambdaTest
 user_name = "pranav_naik"
-access_token = "KtFvmwaUCKQQfPRpPmh1YAW2RvHfsysJGUlV0roFQBZY3AQcnm"
+access_token = "TIip2A6dnYX0RVdW3jMAYtNNFr7O9ZWXljPMQbtrS0QbqqefWW"
 remote_url = "http://" + user_name + ":" + access_token + "@hub.lambdatest.com/wd/hub"
 
 # 2nd Step: Define The Desired Capabilities (3 Caps)
@@ -38,8 +38,7 @@ chrome_caps = {
     "visual": True,
     "video": True,
     "network": True,
-    "console": "true",
-    "tunnel": True
+    "console": True
 }
 
 edge_caps = {
@@ -51,8 +50,7 @@ edge_caps = {
     "visual": True,
     "video": True,
     "network": True,
-    "console": "true",
-    "tunnel": True
+    "console": True
 }
 
 firefox_caps = {
@@ -64,8 +62,7 @@ firefox_caps = {
     "visual": True,
     "video": True,
     "network": True,
-    "console": "true",
-    "tunnel": True
+    "console": True
 }
 
 ie_caps = {
@@ -77,8 +74,7 @@ ie_caps = {
     "visual": True,
     "video": True,
     "network": True,
-    "console": "true",
-    "tunnel": True
+    "console": True
 }
 
 
@@ -114,5 +110,7 @@ def driver_initialization(request):
             options=ie_options
         )
     request.cls.driver = driver
+    driver.get(TestData.base_url)
+    driver.maximize_window()
     yield
     driver.close()
