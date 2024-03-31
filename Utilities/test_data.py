@@ -22,7 +22,7 @@ class TestData:
 
     # Scenario 3:
     input_form_submit_link = (By.XPATH, "//a[normalize-space()='Input Form Submit']")
-    form_submit_button = (By.XPATH, "//button[text()='Submit']")
+    form_submit_button = (By.XPATH, "//button[normalize-space()='Submit']")
 
     # warning message for empty field submission
     # the below locator does not locate the warning message as it seems to be detached from the DOM
