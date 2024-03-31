@@ -1,0 +1,12 @@
+# .gitpod.yml
+
+# Tasks to run when the Gitpod environment is initialized
+tasks:
+  - name: Install Python Dependencies
+    command: pip install pytest selenium pytest-xdist
+
+# Specify Git configuration options (if needed)
+git:
+  global:
+    user.name: "Pranav Naik"
+    user.email: "nk.pranav99@gmail.com"
