@@ -1,5 +1,5 @@
-# LambdaTestSeleniumPython101
-This is a repository containing the Final assessment for the LambdaTest Selenium Python 101 Certification.
+# LambdaTestSeleniumAdvanced
+This is a repository containing the Final assessment for the LambdaTest Selenium Advanced Certification.
 
 ## Testting Framework
 The Tests are written using the Pytest Framework.

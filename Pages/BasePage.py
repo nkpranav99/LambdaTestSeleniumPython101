@@ -5,6 +5,9 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 from Utilities.test_data import TestData
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
 
 
 class BasePage:
@@ -18,7 +21,10 @@ class BasePage:
         return self.driver.find_element(*locator)
 
     def click_on_element(self, locator):
-        self.find_element_on_page(*locator).click()
+        element = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(locator)
+        )
+        element.click()
 
     def get_current_url(self):
         return self.driver.current_url
@@ -31,3 +37,5 @@ class BasePage:
 
     def get_text_in_element(self, locator):
         return self.find_element_on_page(*locator).text
+
+
