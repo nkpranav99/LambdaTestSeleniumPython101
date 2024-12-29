@@ -19,10 +19,8 @@ def initialize_driver(request):
         driver = webdriver.Edge()
 
     request.cls.driver = driver
-    # Load the AUT
     driver.get(TestData.baseUrl)
     driver.maximize_window()
-    # transfer control to the test scripts
     yield
     driver.close()
 
@@ -49,7 +47,7 @@ chrome_caps = {
 edge_caps = {
     "build": "2.0",
     "name": "LambdaTest Grid On Edge v127.0 and macOS Ventura",
-    "platform": "MacOS Sequoia",
+    "platform": "MacOS Ventura",
     "browserName": "MicrosoftEdge",
     "version": "127.0",
     "visual": True,

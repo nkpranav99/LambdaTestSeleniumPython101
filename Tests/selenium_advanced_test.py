@@ -7,8 +7,6 @@ from Pages.HomePage import HomePage
 
 from Utilities.test_data import TestData
 
-# @pytest.mark.usefixtures("initialize_driver")
-#
 @pytest.mark.usefixtures("driver_initialization")
 class TestScenario1():
     def test_scenario_1(self):
@@ -25,14 +23,10 @@ class TestScenario1():
 
         windowHandles = self.driver.window_handles
 
-        for handles in windowHandles:
-            print(handles)
+        for index, handle in enumerate(windowHandles):
+            print("Window Handle {0}: {1}".format(index, handle))
 
-        # time.sleep(10)
-
-        # for (i, handle) in zip(range(1,len(windowHandles + 1)), windowHandles):
-        #     print('Window handle {0}: {1}'.format(i, handle))
-        #
+        time.sleep(10)
         assert len(windowHandles) == 2, ('Count of Window Handles is not as expected! '
                                          'Expected : 2, Actual: {0}').format(len(windowHandles))
 
