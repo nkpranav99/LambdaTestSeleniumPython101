@@ -8,6 +8,7 @@ The Tests are written using the Pytest Framework.
 1. pytest
 2. selenium
 3. pytest-xdist
+The same have been configured in the *gitpod.yml*.
 
 ## Note:
 All options required for running the tests have been added in the pytest.ini file
