@@ -23,4 +23,7 @@ class HomePage(BasePage):
             EC.presence_of_element_located(locator))
         actions = ActionChains(self.driver)
         actions.move_to_element(element).perform()
-        actions.key_down(Keys.CONTROL).click(element).key_up(Keys.CONTROL).perform()
+        if self.driver.capabilities["platformName"].lower() == "windows":
+            actions.key_down(Keys.CONTROL).click(element).key_up(Keys.CONTROL).perform()
+        elif self.driver.capabilities["platformName"].lower() == "mac":
+            actions.key_down(Keys.COMMAND).click(element).key_up(Keys.COMMAND).perform()
